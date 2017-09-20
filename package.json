@@ -8,7 +8,7 @@
     "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/ --inline",
     "build:prod": "webpack -p && cp src/index.html dist/index.html && cp -r src/images dist/images && node app.js",
     "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm install --only=dev --dev",
-    "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production; webpack -p && cp -r src/index.html dist/index.html&& cp src/images dist/images "
+    "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production; webpack -p && cp src/index.html dist/index.html && cp -r src/images dist/images "
   },
   "author": "Matthew Zaso (zaso.matthew@gmail.com)",
   "license": "ISC",
