@@ -1998,10 +1998,10 @@ button svg.icon use {
   .skill-circles-header .filter {
     cursor: pointer;
     color: #f0f0f0;
-    width: 145px;
+    width: 30%;
     height: 30px;
     display: inline-block;
-    margin: 0px 8px;
+    margin: 5px auto;
     border-radius: 15px;
     text-align: left; }
     .skill-circles-header .filter.disabled .circle {
@@ -2057,6 +2057,8 @@ button svg.icon use {
     font-size: 28px;
     height: 100%;
     width: 100%; }
+  .skill-circles .text {
+    font-size: 14px; }
   .skill-circles .circle--js {
     width: 25.2%;
     left: 23.6%;
@@ -2073,11 +2075,11 @@ button svg.icon use {
     width: 18%;
     left: 75.5%;
     top: 14%; }
-  .skill-circles .circle--java {
+  .skill-circles .circle--angular {
     width: 16%;
     left: 46%;
     top: 65%; }
-  .skill-circles .circle--ios {
+  .skill-circles .circle--nodejs {
     width: 15%;
     left: 38.5%;
     top: 1%; }
@@ -2085,7 +2087,7 @@ button svg.icon use {
     width: 14.5%;
     left: 81%;
     top: 53%; }
-  .skill-circles .circle--angular {
+  .skill-circles .circle--java {
     width: 14.5%;
     left: 48.5%;
     top: 29%; }
@@ -2097,13 +2099,25 @@ button svg.icon use {
     width: 10.5%;
     left: 26.8%;
     top: 9%; }
-  .skill-circles .circle--nodejs {
+  .skill-circles .circle--ios {
     width: 10.5%;
     left: 13%;
     top: 56%; }
 
 .skill-circles-aspect-wrapper.custom-aspect {
   padding-bottom: 48%; }
+
+@media screen and (min-width: 768px) {
+  .skill-circles .text {
+    font-size: 18px; } }
+
+@media screen and (min-width: 1024px) {
+  .skill-circles .text {
+    font-size: 24px; } }
+
+.skill-circles-header .filter {
+  width: 145px;
+  margin: 0px 8px; }
 
 html, body, button {
   -webkit-font-smoothing: antialiased;
@@ -2113,7 +2127,6 @@ body {
   position: relative;
   font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
   font-weight: 300;
-  background-color: #fff;
   box-sizing: border-box;
   min-height: 100%; }
 
@@ -2128,10 +2141,25 @@ body {
   margin: 0; }
 
 .footer {
-  background-image: url("/images/photos/golden-gate-bridge.jpg");
   height: 350px;
   background-size: cover;
   background-position-x: 90%; }
+
+.main {
+  background-color: white;
+  margin-bottom: 350px;
+  position: relative;
+  z-index: 1; }
+
+.bottom-pinned-photo {
+  position: fixed;
+  bottom: 0; }
+
+.introduction-text {
+  font-size: 24px;
+  line-height: 1.6;
+  text-align: center;
+  color: #5b6268; }
 
 @font-face {
   font-family: 'Roboto Condensed';

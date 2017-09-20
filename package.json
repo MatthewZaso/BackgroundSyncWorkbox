@@ -6,9 +6,9 @@
   "scripts": {
     "start": "npm run build",
     "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/ --inline",
-    "build:prod": "webpack -p && cp src/index.html dist/index.html && node app.js",
+    "build:prod": "webpack -p && cp src/index.html dist/index.html && cp src/images dist/images && node app.js",
     "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm install --only=dev --dev",
-    "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production; webpack -p && cp src/index.html dist/index.html"
+    "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production; webpack -p && cp src/index.html dist/index.html&& cp src/images dist/images "
   },
   "author": "Matthew Zaso (zaso.matthew@gmail.com)",
   "license": "ISC",
@@ -20,6 +20,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
     "webpack": "^3.6.0",
@@ -34,4 +35,3 @@
     "node-sass-json-importer": "^3.0.2"
   }
 }
-
