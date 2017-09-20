@@ -1,0 +1,6 @@
+mixin skill-circle(className, skill, level)
+  div(class='circle circle--' + className.toLowerCase() + ' circle--level-' + level)
+    .aspect.aspect-1x1
+      .aspect-inner
+        .text-container.table-center-wrap
+          span.table-center= skill

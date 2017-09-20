@@ -1,0 +1,8 @@
+mixin social-circle(network, imageSrc, url, handle)
+  div(class='social-circle ' + network.toLowerCase())
+    .aspect.aspect-1x1
+      .aspect-inner
+        .flip-container
+          img.front(src= imageSrc)
+          a.back.table-center-wrap(href= url)
+            span.handle.table-center= handle
