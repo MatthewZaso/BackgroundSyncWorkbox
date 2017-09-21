@@ -1,6 +1,7 @@
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var jsonImporter = require('node-sass-json-importer');
+var autoprefixer = require('autoprefixer');
 
 var DIST_DIR = path.resolve(__dirname, 'dist');
 var SRC_DIR = path.resolve(__dirname, 'src');
@@ -30,6 +31,13 @@ var config = {
           options: {
             importLoaders: 1
           },
+        },{
+          loader: 'postcss-loader',
+          options: {
+            plugins: function () {
+              return [autoprefixer('> 1%', 'last 2 versions', 'Firefox ESR', 'not IE < 11')]
+            }
+          }
         },
         {
           loader: 'sass-loader',
