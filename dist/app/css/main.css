@@ -2233,12 +2233,40 @@ body {
 .header .header-title {
   color: #0cb89e;
   font-size: 68px;
-  margin-bottom: -10px; }
+  margin-bottom: -10px;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+  opacity: 0;
+  -webkit-animation: type-fade;
+          animation: type-fade; }
 
 .header .header-subtitle {
   color: #6dbcdb;
   font-size: 26px;
-  margin: 0; }
+  margin: 0;
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
+  opacity: 0;
+  -webkit-animation: type-fade;
+          animation: type-fade; }
+
+@-webkit-keyframes type-fade {
+  70% {
+    opacity: 1; }
+  
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1; } }
+
+@keyframes type-fade {
+  70% {
+    opacity: 1; }
+  
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1; } }
 
 .footer {
   height: 350px;

@@ -74,12 +74,46 @@ body {
     color: $colorTeal;
     font-size: $fontXXLarge;
     margin-bottom: -10px;
+    animation: .4s 1 type-fade-title ease-out;
   }
 
   .header-subtitle {
     color: $colorBlue;
     font-size: $fontLarge;
     margin: 0;
+    animation: .4s 1 type-fade-subtitle ease-out;
+  }
+}
+
+@keyframes type-fade-title {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes type-fade-subtitle {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
@@ -106,6 +140,23 @@ body {
   line-height: 1.6;
   text-align: center;
   color: $colorDarkGray;
+  animation: .6s 1 type-fade-intro ease-out;
+}
+
+@keyframes type-fade-intro {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  70% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @font-face {
