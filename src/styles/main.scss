@@ -143,6 +143,10 @@ body {
   animation: .6s 1 type-fade-intro ease-out;
 }
 
+.bottom-pinned-photo {
+  .odo-responsive-img, img { width: 100%; }
+}
+
 @keyframes type-fade-intro {
   0% {
     opacity: 0;
