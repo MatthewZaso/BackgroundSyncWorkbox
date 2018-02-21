@@ -4,7 +4,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.0.0-beta.0/
 workboxSW.precache([
   {
     "url": "/app/bundle.js",
-    "revision": "dffa06ace0c93924ecffe3a3f8338820"
+    "revision": "19afcfdd70063492b4b7fba29e6d0fba"
   },
   {
     "url": "/app/css/main.css",
@@ -25,7 +25,20 @@ workboxSW.precache([
 //   'GET'
 // );
 
-const queue = new workbox.backgroundSync.Queue('myQueueName');
+const sendNotification = (data) => {
+  console.log('channel message broadcasted');
+  const channel = new BroadcastChannel('app-channel');
+  channel.postMessage('content available');
+}
+
+const queue = new workbox.backgroundSync.Queue(
+  'myQueueName',
+  {
+    callbacks: {
+      queueDidReplay: sendNotification
+    }
+  }
+);
 
 self.addEventListener('fetch', (event) => {
   // Clone the request to ensure it's save to read when

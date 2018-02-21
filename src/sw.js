@@ -16,7 +16,20 @@ workboxSW.precache([]);
 //   'GET'
 // );
 
-const queue = new workbox.backgroundSync.Queue('myQueueName');
+const sendNotification = (data) => {
+  console.log('channel message broadcasted');
+  const channel = new BroadcastChannel('app-channel');
+  channel.postMessage('content available');
+}
+
+const queue = new workbox.backgroundSync.Queue(
+  'myQueueName',
+  {
+    callbacks: {
+      queueDidReplay: sendNotification
+    }
+  }
+);
 
 self.addEventListener('fetch', (event) => {
   // Clone the request to ensure it's save to read when

@@ -7,7 +7,17 @@ class JSONFetcher {
 
     this.trigger.addEventListener('click', this._addNewPost.bind(this));
 
+    this.channel = new BroadcastChannel('app-channel');
+
     this.postCount = 1;
+
+    this.channel.onmessage = (e) => {
+      console.log(e.data);
+      console.log('channel message received in app.js');
+      this._addNewPost();
+    };
+
+    console.log(this.channel);
   }
 
   _addNewPost(evt) {
