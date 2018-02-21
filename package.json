@@ -1,11 +1,11 @@
 {
-  "name": "zaso-io-2017",
+  "name": "background-sync",
   "version": "1.0.0",
-  "description": "Matt Zaso's personal website",
+  "description": "Background Sync",
   "main": "app.js",
   "scripts": {
     "start": "npm run build",
-    "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/ --inline",
+    "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --https --content-base src/ --inline",
     "build:prod": "webpack -p && cp src/index.html dist/index.html && cp -r src/images dist/images && node app.js",
     "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm install --only=dev --dev",
     "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production; webpack -p && cp src/index.html dist/index.html && cp -r src/images dist/images "
@@ -26,14 +26,12 @@
     "postcss-loader": "^2.0.6",
     "sass-loader": "^6.0.6",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.8.2"
+    "webpack-dev-server": "^2.8.2",
+    "workbox-webpack-plugin": "^2.1.2"
   },
   "dependencies": {
-    "@odopod/odo-responsive-images": "^1.0.1",
-    "@odopod/odo-sassplate": "^1.1.0",
     "core-js": "^2.5.1",
     "express": "^4.15.4",
-    "lodash": "^4.17.4",
-    "node-sass-json-importer": "^3.0.2"
+    "lodash": "^4.17.4"
   }
 }

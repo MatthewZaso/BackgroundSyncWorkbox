@@ -1,0 +1,31 @@
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.0.0-beta.0/workbox-sw.js');
+
+/*
+workboxSW.precache([]);
+*/
+
+// const bgSyncPlugin = new workbox.backgroundSync.Plugin('myQueueName', {
+//   maxRetentionTime: 24 * 60 // Retry for max of 24 Hours
+// });
+
+// workbox.routing.registerRoute(
+//   new RegExp('https://jsonplaceholder.typicode.com.*'),
+//   workbox.strategies.networkOnly({
+//     plugins: [bgSyncPlugin]
+//   }),
+//   'GET'
+// );
+
+const queue = new workbox.backgroundSync.Queue('myQueueName');
+
+self.addEventListener('fetch', (event) => {
+  // Clone the request to ensure it's save to read when
+  // adding to the Queue.
+  const promiseChain = fetch(event.request.clone())
+    .catch((err) => {
+      console.log(err, 'caught by sw');
+      return queue.addRequest(event.request);
+    });
+
+  event.waitUntil(promiseChain);
+});

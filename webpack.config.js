@@ -1,7 +1,7 @@
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var jsonImporter = require('node-sass-json-importer');
 var autoprefixer = require('autoprefixer');
+var InjectManifest = require('workbox-webpack-plugin');
 
 var DIST_DIR = path.resolve(__dirname, 'dist');
 var SRC_DIR = path.resolve(__dirname, 'src');
@@ -38,19 +38,16 @@ var config = {
               return [autoprefixer('> 1%', 'last 2 versions', 'Firefox ESR', 'not IE < 11')]
             }
           }
-        },
-        {
-          loader: 'sass-loader',
-          // Apply the JSON importer via sass-loader's options.
-          options: {
-            importer: jsonImporter,
-          },
         }])
       }
     ],
   },
   plugins: [
-    extractPlugin
+    extractPlugin,
+    new InjectManifest({
+      swSrc: SRC_DIR + '/sw.js',
+      swDest: DIST_DIR + '/sw.js',
+    })
   ]
 };
 
