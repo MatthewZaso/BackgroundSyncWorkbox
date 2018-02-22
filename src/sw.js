@@ -19,7 +19,11 @@ workboxSW.precache([]);
 const sendNotification = (data) => {
   console.log('channel message broadcasted');
   const channel = new BroadcastChannel('app-channel');
-  channel.postMessage('content available');
+  console.log(data);
+  console.log(data[0].request.url);
+  const clone = data.map(item => item.request.url);
+  console.log(clone);
+  channel.postMessage({ data: clone });
 }
 
 const queue = new workbox.backgroundSync.Queue(
